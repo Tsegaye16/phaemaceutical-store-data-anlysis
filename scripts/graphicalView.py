@@ -4,53 +4,94 @@ import seaborn as sns
 import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
+import logging
+
+
+# Set up logging
+logging.basicConfig(
+    level=logging.DEBUG,  # Log level: DEBUG, INFO, WARNING, ERROR, CRITICAL
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler("../log/visualization.log"),  # Log to a file
+        logging.StreamHandler()                   # Log to console
+    ]
+)
+logger = logging.getLogger(__name__)
 
 def plotly_plot_pie(df, column, limit=None, title=None):
-    a = pd.DataFrame({'count': df.groupby([column]).size()}).reset_index()
-    a = a.sort_values("count", ascending=False)
-    if limit:
-        a.loc[a['count'] < limit, column] = f'Other {column}s'
-    if title == None:
-        title=f'Distribution of {column}'
-    fig = px.pie(a, values='count', names=column, title=title, width=800, height=500)
-    fig.show()
+    logger.info("Starting pie chart plot for column: %s", column)
+    try:
+        a = pd.DataFrame({'count': df.groupby([column]).size()}).reset_index()
+        a = a.sort_values("count", ascending=False)
+        if limit:
+            logger.debug("Applying limit: %s", limit)
+            a.loc[a['count'] < limit, column] = f'Other {column}s'
+        if title is None:
+            title = f'Distribution of {column}'
+        fig = px.pie(a, values='count', names=column, title=title, width=800, height=500)
+        fig.show()
+        logger.info("Pie chart plot completed successfully.")
+    except Exception as e:
+        logger.error("Error while plotting pie chart: %s", e)
 
 def plotly_plot_hist(df, column, color=['cornflowerblue'], title=None):
-    if title == None:
-        title=f'Distribution of {column}'
-    fig = px.histogram(
+    logger.info("Starting histogram plot for column: %s", column)
+    try:
+        if title is None:
+            title = f'Distribution of {column}'
+        fig = px.histogram(
             df,
             x=column,
             marginal='box',
             color_discrete_sequence=color,
-            title=title)
-    fig.update_layout(bargap=0.01)
-    fig.show()
+            title=title
+        )
+        fig.update_layout(bargap=0.01)
+        fig.show()
+        logger.info("Histogram plot completed successfully.")
+    except Exception as e:
+        logger.error("Error while plotting histogram: %s", e)
 
 def plotly_multi_hist(sr, rows, cols, title_text, subplot_titles):
-  fig = make_subplots(rows=rows, cols=cols, subplot_titles=subplot_titles)
-  for i in range(rows):
-    for j in range(cols):
-      x = ["-> " + str(i) for i in sr[i+j].index]
-      fig.add_trace(go.Bar(x=x, y=sr[i+j].values ), row=i+1, col=j+1)
-  fig.update_layout(showlegend=False, title_text=title_text)
-  fig.show()
+    logger.info("Starting multi-histogram plot.")
+    try:
+        fig = make_subplots(rows=rows, cols=cols, subplot_titles=subplot_titles)
+        for i in range(rows):
+            for j in range(cols):
+                x = ["-> " + str(k) for k in sr[i + j].index]
+                fig.add_trace(go.Bar(x=x, y=sr[i + j].values), row=i + 1, col=j + 1)
+        fig.update_layout(showlegend=False, title_text=title_text)
+        fig.show()
+        logger.info("Multi-histogram plot completed successfully.")
+    except Exception as e:
+        logger.error("Error while plotting multi-histogram: %s", e)
 
 def plotly_plot_scatter(df, x_col, y_col, marker_size, hover=[]):
-    fig = px.scatter(
+    logger.info("Starting scatter plot for columns: %s vs. %s", x_col, y_col)
+    try:
+        fig = px.scatter(
             df,
             x=x_col,
             y=y_col,
             opacity=0.8,
             hover_data=hover,
-            title=f'{x_col} vs. {y_col}')
-    fig.update_traces(marker_size=marker_size)
-    fig.show()
+            title=f'{x_col} vs. {y_col}'
+        )
+        fig.update_traces(marker_size=marker_size)
+        fig.show()
+        logger.info("Scatter plot completed successfully.")
+    except Exception as e:
+        logger.error("Error while plotting scatter plot: %s", e)
 
-def plot_hist(df:pd.DataFrame, column:str, color:str='cornflowerblue')->None:
-    sns.displot(data=df, x=column, color=color, kde=True, height=6, aspect=2)
-    plt.title(f'Distribution of {column}', size=20, fontweight='bold')
-    plt.show()
+def plot_hist(df: pd.DataFrame, column: str, color: str = 'cornflowerblue') -> None:
+    logger.info("Starting histogram (Seaborn) plot for column: %s", column)
+    try:
+        sns.displot(data=df, x=column, color=color, kde=True, height=6, aspect=2)
+        plt.title(f'Distribution of {column}', size=20, fontweight='bold')
+        plt.show()
+        logger.info("Seaborn histogram plot completed successfully.")
+    except Exception as e:
+        logger.error("Error while plotting Seaborn histogram: %s", e)
 
 def plot_count(df:pd.DataFrame, column:str) -> None:
     plt.figure(figsize=(12, 7))
