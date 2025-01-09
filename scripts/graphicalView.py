@@ -12,7 +12,7 @@ logging.basicConfig(
     level=logging.DEBUG,  # Log level: DEBUG, INFO, WARNING, ERROR, CRITICAL
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler("../log/visualization.log"),  # Log to a file
+        logging.FileHandler("../logs/visualization.log"),  # Log to a file
         logging.StreamHandler()                   # Log to console
     ]
 )

@@ -1,0 +1,15 @@
+stages:
+  feature_selection:
+    cmd: python .\scripts\create_feature.py
+    deps:
+      - .\scripts\create_feature.py
+    outs:
+      - .\features
+  model_training:
+    cmd: python .\scripts\train_all_models.py
+    deps:
+      - .\features\target_customers.csv
+      - .\features\target_sales.csv
+      - .\features\train_features.csv
+    outs:
+      - .\models
