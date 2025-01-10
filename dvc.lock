@@ -34,3 +34,28 @@ stages:
       md5: d751713988987e9331980363e24189ce.dir
       size: 0
       nfiles: 0
+  train_models:
+    cmd: python ./scripts/train_all_models.py
+    deps:
+    - path: ./features/target_customers.csv
+      hash: md5
+      md5: e34f29cf5b3755755ee595debeda33d3
+      size: 4369890
+    - path: ./features/target_sales.csv
+      hash: md5
+      md5: 57113a7f17fa48bf1ef7f775a74f625e
+      size: 5179642
+    - path: ./features/train_features.csv
+      hash: md5
+      md5: 898f9354c7ae63103347cbbae670dcbb
+      size: 57543050
+    - path: ./scripts\train_all_models.py
+      hash: md5
+      md5: a1c570d8b13f7b3548bfc809950f86f1
+      size: 961
+    outs:
+    - path: ./models/
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0

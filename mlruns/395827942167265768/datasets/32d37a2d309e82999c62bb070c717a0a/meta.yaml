@@ -1,0 +1,25 @@
+digest: 0d2d9686
+name: dataset
+profile: '{"num_rows": 844392, "num_elements": 21109800}'
+schema: '{"mlflow_colspec": [{"type": "long", "name": "Store", "required": true},
+  {"type": "long", "name": "DayOfWeek", "required": true}, {"type": "long", "name":
+  "Open", "required": true}, {"type": "long", "name": "Promo", "required": true},
+  {"type": "long", "name": "StateHoliday", "required": true}, {"type": "long", "name":
+  "SchoolHoliday", "required": true}, {"type": "long", "name": "Year", "required":
+  true}, {"type": "long", "name": "Month", "required": true}, {"type": "long", "name":
+  "DayOfMonth", "required": true}, {"type": "long", "name": "WeekOfYear", "required":
+  true}, {"type": "long", "name": "weekday", "required": true}, {"type": "long", "name":
+  "StoreType", "required": true}, {"type": "long", "name": "Assortment", "required":
+  true}, {"type": "double", "name": "CompetitionDistance", "required": true}, {"type":
+  "long", "name": "CompetitionOpenSinceMonth", "required": true}, {"type": "long",
+  "name": "CompetitionOpenSinceYear", "required": true}, {"type": "long", "name":
+  "Promo2", "required": true}, {"type": "long", "name": "Promo2SinceWeek", "required":
+  true}, {"type": "long", "name": "Promo2SinceYear", "required": true}, {"type": "long",
+  "name": "CompetitionBeforeStoreOpened", "required": true}, {"type": "long", "name":
+  "PromoInterval0", "required": true}, {"type": "long", "name": "PromoInterval1",
+  "required": true}, {"type": "long", "name": "PromoInterval2", "required": true},
+  {"type": "long", "name": "PromoInterval3", "required": true}, {"type": "long", "name":
+  "part_of_month", "required": true}]}'
+source: '{"tags": {"mlflow.user": "Tsegaye", "mlflow.source.name": "./scripts/train_all_models.py",
+  "mlflow.source.type": "LOCAL", "mlflow.source.git.commit": "47cc58d0847fb13c16ba6db658e512c206fa2c4d"}}'
+source_type: code

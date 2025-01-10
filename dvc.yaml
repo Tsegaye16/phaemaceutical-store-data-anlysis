@@ -5,11 +5,12 @@ stages:
       - .\scripts\create_feature.py
     outs:
       - .\features
-  model_training:
-    cmd: python .\scripts\train_all_models.py
+  train_models:
+    cmd: python ./scripts/train_all_models.py
     deps:
-      - .\features\target_customers.csv
-      - .\features\target_sales.csv
-      - .\features\train_features.csv
+      - ./scripts\train_all_models.py
+      - ./features/train_features.csv
+      - ./features/target_sales.csv
+      - ./features/target_customers.csv
     outs:
-      - .\models
+      - ./models/
