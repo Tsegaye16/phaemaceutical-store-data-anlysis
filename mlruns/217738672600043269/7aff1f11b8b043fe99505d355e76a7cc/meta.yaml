@@ -1,0 +1,15 @@
+artifact_uri: file:///E:/Development/10-Accademy/phaemaceutical-store-data-anlysis/mlruns/217738672600043269/7aff1f11b8b043fe99505d355e76a7cc/artifacts
+end_time: 1736497044265
+entry_point_name: ''
+experiment_id: '217738672600043269'
+lifecycle_stage: active
+run_id: 7aff1f11b8b043fe99505d355e76a7cc
+run_name: selective-sow-275
+run_uuid: 7aff1f11b8b043fe99505d355e76a7cc
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1736497024127
+status: 4
+tags: []
+user_id: Tsegaye

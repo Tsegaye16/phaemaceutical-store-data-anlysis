@@ -1,0 +1,41 @@
+artifact_path: model
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.12.1
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.6.0
+mlflow_version: 2.19.0
+model_size_bytes: 31751960
+model_uuid: b77d1bbbacc9472a94d7c0ca2ff054be
+run_id: 5275b2c2219a487f9de6c9cecf97a5ab
+signature:
+  inputs: '[{"type": "long", "name": "Store", "required": true}, {"type": "long",
+    "name": "DayOfWeek", "required": true}, {"type": "long", "name": "Open", "required":
+    true}, {"type": "long", "name": "Promo", "required": true}, {"type": "long", "name":
+    "StateHoliday", "required": true}, {"type": "long", "name": "SchoolHoliday", "required":
+    true}, {"type": "long", "name": "Year", "required": true}, {"type": "long", "name":
+    "Month", "required": true}, {"type": "long", "name": "DayOfMonth", "required":
+    true}, {"type": "long", "name": "WeekOfYear", "required": true}, {"type": "long",
+    "name": "weekday", "required": true}, {"type": "long", "name": "StoreType", "required":
+    true}, {"type": "long", "name": "Assortment", "required": true}, {"type": "double",
+    "name": "CompetitionDistance", "required": true}, {"type": "long", "name": "CompetitionOpenSinceMonth",
+    "required": true}, {"type": "long", "name": "CompetitionOpenSinceYear", "required":
+    true}, {"type": "long", "name": "Promo2", "required": true}, {"type": "long",
+    "name": "Promo2SinceWeek", "required": true}, {"type": "long", "name": "Promo2SinceYear",
+    "required": true}, {"type": "long", "name": "CompetitionBeforeStoreOpened", "required":
+    true}, {"type": "long", "name": "PromoInterval0", "required": true}, {"type":
+    "long", "name": "PromoInterval1", "required": true}, {"type": "long", "name":
+    "PromoInterval2", "required": true}, {"type": "long", "name": "PromoInterval3",
+    "required": true}, {"type": "long", "name": "part_of_month", "required": true}]'
+  outputs: '[{"type": "tensor", "tensor-spec": {"dtype": "float64", "shape": [-1]}}]'
+  params: null
+utc_time_created: '2025-01-10 09:07:12.796070'

@@ -35,27 +35,31 @@ stages:
       size: 0
       nfiles: 0
   train_models:
-    cmd: python scripts/train_all_models.py
+    cmd: python ./scripts/train_all_models.py
     deps:
-    - path: features/target_customers.csv
+    - path: ./features/target_customers.csv
       hash: md5
       md5: e34f29cf5b3755755ee595debeda33d3
       size: 4369890
-    - path: features/target_sales.csv
+    - path: ./features/target_sales.csv
       hash: md5
       md5: 57113a7f17fa48bf1ef7f775a74f625e
       size: 5179642
-    - path: features/train_features.csv
+    - path: ./features/train_features.csv
       hash: md5
       md5: 898f9354c7ae63103347cbbae670dcbb
       size: 57543050
-    - path: scripts\train_all_models.py
+    - path: ./scripts/train_all_models.py
       hash: md5
       md5: a1c570d8b13f7b3548bfc809950f86f1
       size: 961
-    outs:
-    - path: models/
+    - path: ./scripts/train_model.py
       hash: md5
-      md5: d751713988987e9331980363e24189ce.dir
-      size: 0
-      nfiles: 0
+      md5: b1670087aa2c94c4506664d18685a76c
+      size: 1555
+    outs:
+    - path: ./models
+      hash: md5
+      md5: 6f1b73a6ae7d999edeaa2b331ae7a699.dir
+      size: 65597212
+      nfiles: 8

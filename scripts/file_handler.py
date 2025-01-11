@@ -1,3 +1,4 @@
+import logging
 import pandas as pd
 import pickle
 import dvc.api
@@ -9,7 +10,8 @@ class FileHandler():
 
     def __init__(self):
         # self.logger = App_Logger().get_logger(__name__)
-        pass
+        self.logger = logging.getLogger(__name__)
+        logging.basicConfig(level=logging.INFO)  # Set log level to INFO
 
     def to_csv(self, df, csv_path, index=False):
         try:
@@ -41,15 +43,20 @@ class FileHandler():
 
     def save_model(self, model, model_name):
         try:
-            time = strftime("%Y-%m-%d-%H:%M:%S", gmtime())
+            # Replace colons in the timestamp with underscores to make it valid for filenames
+            time = strftime("%Y-%m-%d-%H_%M_%S", gmtime())  # Changed colons to underscores
             name = Config.MODELS_PATH / str(f'{model_name} {time}.pkl')
+            
+            # Print the path to verify it
+            print(f"Saving model to: {name}")
+            
             Config.MODELS_PATH.mkdir(parents=True, exist_ok=True)
             pickle.dump(model, open(str(name), "wb"))
             # self.logger.info(f'{model_name} model { model_name + time }.pkl saved in {Config.MODELS_PATH}.')
-
-        except Exception:
+            
+        except Exception as e:
+            print(f"Error saving model: {e}")
             # self.logger.exception("Model saving failed.")
-            pass
 
     def read_model(self, model_name):
         try:

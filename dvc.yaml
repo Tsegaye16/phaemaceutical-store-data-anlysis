@@ -6,11 +6,12 @@ stages:
     outs:
       - .\features
   train_models:
-    cmd: python scripts/train_all_models.py
+    cmd: python ./scripts/train_all_models.py
     deps:
-      - scripts\train_all_models.py
-      - features/train_features.csv
-      - features/target_sales.csv
-      - features/target_customers.csv
+      - ./scripts/train_all_models.py
+      - ./features/train_features.csv
+      - ./features/target_sales.csv
+      - ./features/target_customers.csv
+      - ./scripts/train_model.py
     outs:
-      - models/
+      - ./models

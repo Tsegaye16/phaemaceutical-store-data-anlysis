@@ -1,0 +1,15 @@
+artifact_uri: file:///E:/Development/10-Accademy/phaemaceutical-store-data-anlysis/mlruns/506063448099754379/e4cddcd6361b4ef8bb65a8530e6ca03d/artifacts
+end_time: 1736500115453
+entry_point_name: ''
+experiment_id: '506063448099754379'
+lifecycle_stage: active
+run_id: e4cddcd6361b4ef8bb65a8530e6ca03d
+run_name: unique-midge-142
+run_uuid: e4cddcd6361b4ef8bb65a8530e6ca03d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1736500072472
+status: 3
+tags: []
+user_id: Tsegaye
