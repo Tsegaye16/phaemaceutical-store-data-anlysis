@@ -1,0 +1,15 @@
+artifact_uri: file:///E:/Development/10-Accademy/phaemaceutical-store-data-anlysis/mlruns/217738672600043269/be146e058b46437696ba3e1a28f8ba8d/artifacts
+end_time: 1736500068432
+entry_point_name: ''
+experiment_id: '217738672600043269'
+lifecycle_stage: active
+run_id: be146e058b46437696ba3e1a28f8ba8d
+run_name: sedate-penguin-440
+run_uuid: be146e058b46437696ba3e1a28f8ba8d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1736500043652
+status: 4
+tags: []
+user_id: Tsegaye
