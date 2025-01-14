@@ -3,12 +3,5 @@ data/sample_submission.csv
 data/test.csv
 data/train.csv
 /features
-/model_sales_lightgbm.pkl
-/model_sales_linear_regression.pkl
-/model_sales_random_forest.pkl
-/model_sales_xgboost.pkl
-/model_customers_lightgbm.pkl
-/model_customers_linear_regression.pkl
-/model_customers_random_forest.pkl
-/model_customers_sxboos.pkl
+
 /models
